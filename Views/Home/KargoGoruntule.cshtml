@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVC_EF_Deneme.Models.KargoDetay>
+
+@{
+    ViewData["Title"] = "Kargo Görüntüle";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.kargoAgirlik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gonderenAdres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gonderenIsim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aliciIsim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aliciBirim)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kargoAgirlik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gonderenAdres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gonderenIsim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aliciIsim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aliciBirim)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.kargoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.kargoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.kargoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
